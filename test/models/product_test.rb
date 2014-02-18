@@ -8,11 +8,12 @@ test "product is not valid without a unique title - il8n" do
 			  description:	"yyy",
 			  price:		1,
 			  image_url:	"fred.gif")
+	end
 assert product.invalid?
-assert_equal [Il8n.translate(errors.messages.taken')],
+assert_equal [Il8n.translate('errors.messages.taken')],
 				product.errors[:title]
 end
-end
+
 test "image url" do
 	ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
 			 http://a.b.c/x/y/z/fred.gif }
@@ -22,7 +23,7 @@ test "image url" do
 		end
 		bad.each do |name|
 			assert new_product(name).invalid?, "#{name} shouldn't be valid"
+			end
 		end
-end
-		
-end
+
+end		
